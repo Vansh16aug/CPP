@@ -18,6 +18,7 @@ class Array{
             if(arr[i]==value){
                 flag=1;
             }
+            break;
         }
         if(flag==1){
             cout<<"Element found ";
