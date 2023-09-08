@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 class binary{
+    public:
 int a,mid,n,arr[100];
-public:
 void array(){
     cout<<"Enter number of element you want to insert in decending order: ";
     cin>>n;
@@ -11,33 +11,36 @@ void array(){
         cin>>arr[i];
     }
 }
-void search(){
-    int end=n-1,start=0,flag=0;
-    cout<<"Enter key you want to search: ";
+int binary_search(){
+    int a;
+    cout<<"Enter element to search :";
     cin>>a;
-    while(end>=start){
-        mid=(end+start)/2;
-        if(a==arr[mid]){
-            flag=1;
-            cout<<"Found";
-            break;
+    int start=0;
+    int end=n-1;
+    while(start<=end){
+        int mid=(start+end)/2;
+        if(arr[mid]==a){
+            return mid;
         }
-        else if(a>arr[mid]){
+        else if(arr[mid]>a){          // > for ascending and < for desceending
             end=mid-1;
         }
         else{
             start=mid+1;
         }
     }
-    if(flag==0){
-        cout<<"Not Found";
-    }
+    return -1;
 }
 };
 int main(){
     binary x;
     x.array();
-    x.search();
-
+    int index=x.binary_search();
+    if(index!=-1){
+        cout<<"Is present at index "<<index<<endl;
+    }
+    else{
+        cout<<"Is not present at any index "<<endl;
+    }
     return 0;
 }
