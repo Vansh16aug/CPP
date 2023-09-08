@@ -1,0 +1,1 @@
+//delete key element from array and for searching the index of the key element using binary search

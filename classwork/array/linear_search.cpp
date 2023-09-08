@@ -53,14 +53,12 @@ int main()
 {
     Array a;
     a.Arraycreate();
-    // int val;
-    // cout<<"Enter what u want to search :";
-    // cin>>val;
-
+    int val;
+    cout<<"Enter what u want to search :";
+    cin>>val;
+    
     // a.linear_search(val);
     // a.deletion();
-
-    
-    a.ArrayPrint();
+    // a.ArrayPrint();
     return 0;
 }
