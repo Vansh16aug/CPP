@@ -12,24 +12,24 @@ void array(){
     }
 }
 void search(){
-    int l=n-1,U=0,v=0;
+    int end=n-1,start=0,flag=0;
     cout<<"Enter key you want to search: ";
     cin>>a;
-    while(l>=U){
-        mid=(l+U)/2;
+    while(end>=start){
+        mid=(end+start)/2;
         if(a==arr[mid]){
-            v=1;
+            flag=1;
             cout<<"Found";
             break;
         }
         else if(a>arr[mid]){
-            l=mid-1;
+            end=mid-1;
         }
         else{
-            U=mid+1;
+            start=mid+1;
         }
     }
-    if(v==0){
+    if(flag==0){
         cout<<"Not Found";
     }
 }
