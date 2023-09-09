@@ -10,9 +10,11 @@ void selection_sort(int arr[],int n){
                 mini=j;
             }
         }
-        int temp=arr[mini];
-        arr[mini]=arr[i];
-        arr[i]=temp;
+        if(mini!=i){
+            int temp=arr[mini];
+            arr[mini]=arr[i];
+            arr[i]=temp;
+        }
     }
       cout << "After selection sort: " << "\n";
         for(int i=0;i<n;i++){
