@@ -7,10 +7,12 @@ class Student{
     int a;
     public:
     void getdata(){
+        cout<<"Enter the value of a :";
         cin>>a;
     }
     void putdata(){
-        cout<<a;
+        cout<<"a = "<<a;
+        cout<<endl;
     }
     static int count;
     Student(){
