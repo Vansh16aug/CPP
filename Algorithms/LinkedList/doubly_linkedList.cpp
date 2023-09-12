@@ -54,10 +54,8 @@ class DoubleLinkedList{
         }
         // at pos-1
         Node* new_node=new Node(val);
-
         new_node->next=temp->next;
-        temp->next=new_node;
-
+        temp->next=new_node; 
         new_node->prev=temp;
         new_node->next->prev=new_node;
         return;
@@ -77,8 +75,20 @@ class DoubleLinkedList{
         head=head->next;
         free(temp);
     }
-    void deleteatK(){
-        
+    void deleteatK(int pos){
+        if(pos==0){
+            deleteatStart();
+        }
+        Node* temp=head;
+        int counter=1;
+        while(counter<pos){
+            temp=temp->next;
+            counter++;
+        }
+        // at pos 
+        temp->prev->next=temp->next;
+        temp->next->prev=temp->prev;
+        free(temp);
     }
     void ForTraverse(){
         Node* temp=head;
@@ -112,6 +122,7 @@ int main()
     dll.insertionAtK(8,3);
     dll.deleteatStart();
     dll.deleteatEnd();
+    dll.deleteatK(2);
     dll.ForTraverse();
     return 0;
 }
