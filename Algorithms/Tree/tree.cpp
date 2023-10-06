@@ -12,19 +12,23 @@ class Node{
         right=NULL;
     }
 };
-class Tree{
-    public:
-    Node* head;
-    Node* tail;
+Node* buildTree(){
+    int data;
+    cout<<"Enter data for tree :";
+    cin>>data;
 
-    Tree(){
-        head=NULL;
-        tail=NULL;
+    if(data==-1){
+        return NULL;
     }
-    
-};
+    Node* new_node=new Node(data);
+    new_node->left=buildTree();
+    new_node->right=buildTree();
+    return new_node;
+}
+
 int main()
 {
     
+    Node* root=buildTree();
     return 0;
 }
