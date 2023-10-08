@@ -34,6 +34,23 @@ void inOrder(Node* root){
     inOrder(root->right);
 }
 
+void preOrder(Node* root){
+    if(root==NULL){
+        return;
+    }
+    cout<<root->key<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+void postOrder(Node* root){
+    if(root==NULL){
+        return;
+    }
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->key<<" ";
+}
 
 bool search(Node* root,int key){
     if(root==NULL){
@@ -89,7 +106,7 @@ Node* remove(Node* root,int key){
         // Two Children
         else{
             Node*temp=findMin(root->right);     //finding inorder successor from right subtree
-            
+
             root->key=temp->key;        // copying inorder successor to key node
 
             root->right=remove(root->right,temp->key);      // removing temp->key (temp id inorder succesor ) and the whole subtree is to right of root
@@ -111,6 +128,14 @@ int main()
     }
     cout<<"Inorder Traversal gives :";
     inOrder(root);
+    cout<<endl;
+
+    cout<<"PostOrder Traversal gives :";
+    postOrder(root);
+    cout<<endl;
+    
+    cout<<"PreOrder Traversal gives :";
+    preOrder(root);
     cout<<endl;
 
     //Searching
