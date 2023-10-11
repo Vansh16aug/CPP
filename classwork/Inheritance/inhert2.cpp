@@ -1,5 +1,5 @@
 // create a program in which we have 2 classes in which one is university and student , student inherit the property of university in public mode . In this program try to access the members of university using the object of student class.
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 class University{
 protected:
