@@ -1,46 +1,76 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
-void merge(int *arr,int s,int e){
-    int mid=(s+e)/2;
 
-    int len1=mid-s+1;
-    int len2=e-mid;
 
-    //creating 2 arrays
-    int *first=new int(len1);
-    int *second=new int(len2);
 
-    //copy values
-    int k=s;
-    for(int i=0;i<len1;i++){
-        first[i]=arr[k++];
-    }
-    int k=mid+1;
-    for(int i=0;i<len2;i++){
-        second[i]=arr[k++];
-    }
-
-    //merge 2 arrays
-    int index1=0;
-    int index2=0;
+void merge(int arr[], int beg, int mid, int end)    
+{    
+    int i, j, k;  
+    int n1 = mid - beg + 1;    
+    int n2 = end - mid;    
+    int LeftArray[n1], RightArray[n2]; 
+    for (int i = 0; i < n1; i++)    
+    LeftArray[i] = arr[beg + i];    
+    for (int j = 0; j < n2; j++)    
+    RightArray[j] = arr[mid + 1 + j]; 
+    i = 0; 
+    j = 0;   
+    k = beg;    
+    while (i < n1 && j < n2)    
+    {    
+        if(LeftArray[i] < RightArray[j])    
+        {    
+            arr[k] = LeftArray[i];    
+            i++;    
+        } 
+else    
+        {    
+            arr[k] = RightArray[j];    
+            j++;    
+        }    
+        k++;    
+    }    
+    while (i<n1)    
+    {    
+        arr[k] = LeftArray[i];    
+        i++;    
+     k++;    
+    } 
+while (j<n2)    
+    {    
+        arr[k] = RightArray[j];    
+        j++;    
+        k++;    
+  }    
+}  
+void mergeSort(int arr[], int beg, int end)  
+   {  
+    if (beg < end)   
+    {  
+        int mid = (beg + end) / 2;  
+        mergeSort(arr, beg, mid);  
+        mergeSort(arr, mid + 1, end);  
+        merge(arr, beg, mid, end);  
+      }  
 }
-void mergeSort(int *arr,int s,int e){
-    if(s>e){
-        return;
-    }
-    int mid=(s+e)/2;
-    //Left sort 
-    mergeSort(arr,s,mid);
 
-    //Right sort
-    mergeSort(arr,mid+1,e);
+void printArray(int arr[], int n)  
+    {  
+    int i;  
+    for (i = 0; i < n; i++)  
+        cout<<arr[i]<<" ";
+} 
 
-    merge(arr,s,e);
-}
+
 int main()
 {
-    int arr[2,5,1,6,9];
-    int n=5;
-    mergeSort(arr,0,n-1);
+    int arr[] = { 12, 31, 25, 8, 32, 17, 40, 42 };  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+    cout<<"Before sorting array elements are :";
+    printArray(arr, n);  
+    cout<<endl;
+    mergeSort(arr, 0, n - 1);  
+    cout<<"After sorting array elements are :";
+    printArray(arr, n); 
     return 0;
 }
