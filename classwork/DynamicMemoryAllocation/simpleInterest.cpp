@@ -14,5 +14,7 @@ int main()
     cin>>*t;
     
     float *si= new float;
+    *si=(*p)*(*r)*(*t)/100;
+    cout<<"The simple interest is :"<<*si<<endl;
     return 0;
 }
