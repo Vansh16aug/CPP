@@ -2,7 +2,7 @@
 using namespace std;
 class Node{
         public:
-        int val;
+        int val;    
         Node* prev;
         Node* next;
 
@@ -37,8 +37,8 @@ class Node{
         void insertionAtEnd(int val){
             Node* new_node=new Node(val);
             if(tail==NULL){
-                head=NULL;
-                tail=NULL;
+                head=new_node;
+                tail=new_node;
                 return;
             }
             tail->next=new_node;
