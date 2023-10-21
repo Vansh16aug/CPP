@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 class P{
-    int* arr;
+    int * arr;
     int size;
     int arr1[5]={1,2,3,4,5};
     public:

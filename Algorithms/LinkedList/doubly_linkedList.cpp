@@ -36,7 +36,7 @@ class DoubleLinkedList{
     void insertAtEnd(int val){
         Node* new_node=new Node(val);
         if(tail==NULL){ // checks if the dll is empty or not
-        head=new_node;//if its null then we need to create both head and tail and point them to new_node
+            head=new_node;//if its null then we need to create both head and tail and point them to new_node
             tail=new_node;
             return;
         }
@@ -69,6 +69,7 @@ class DoubleLinkedList{
     void deleteatStart(){
         Node* temp=head;
         head=head->next;
+        head->prev=NULL;
         free(temp);
     }
     void deleteatK(int pos){
@@ -104,7 +105,6 @@ class DoubleLinkedList{
 
 int main()
 {
-    Node* new_node=new Node(3);
     DoubleLinkedList dll;
     // dll.insertionAtStart(1);
     // dll.insertionAtStart(2);
