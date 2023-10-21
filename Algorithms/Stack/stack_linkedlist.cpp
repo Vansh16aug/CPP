@@ -22,7 +22,7 @@ class LinkedList{
             new_node->next=NULL;
             head=new_node;
         }
-        else{
+        else{   
             new_node->next=head;
             head=new_node;
         }

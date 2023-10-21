@@ -25,7 +25,7 @@ Node* insert(Node* root,int key){
 }
 
 
-void inOrder(Node* root){
+void inOrder(Node* root){       //left key right
     if(root==NULL){
         return;
     }
@@ -34,7 +34,7 @@ void inOrder(Node* root){
     inOrder(root->right);
 }
 
-void preOrder(Node* root){
+void preOrder(Node* root){      //key left right
     if(root==NULL){
         return;
     }
@@ -43,7 +43,7 @@ void preOrder(Node* root){
     preOrder(root->right);
 }
 
-void postOrder(Node* root){
+void postOrder(Node* root){     //left right key
     if(root==NULL){
         return;
     }
@@ -60,9 +60,9 @@ bool search(Node* root,int key){
         return true;
     }
     if(key>root->key){
-        return search(root->left,key);
+        return search(root->right,key);
     }
-    return search(root->right,key);
+    return search(root->left,key);
 }
 
 Node* findMin(Node* root){
