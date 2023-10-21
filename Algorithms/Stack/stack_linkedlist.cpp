@@ -16,7 +16,7 @@ class LinkedList{
     LinkedList(){
         head=NULL;
     }
-    void stackPush(int val){
+    void stackPush(int val){    
         Node* new_node=new Node(val);
         if(head==NULL){
             new_node->next=NULL;
@@ -27,7 +27,7 @@ class LinkedList{
             head=new_node;
         }
     }
-    void stackPop(){
+    void stackPop(){    //delete from start
         Node* temp=head;
         head=head->next;
         free(temp);
