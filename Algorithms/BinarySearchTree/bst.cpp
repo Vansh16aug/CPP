@@ -52,6 +52,14 @@ void postOrder(Node* root){     //left right key
     cout<<root->key<<" ";
 }
 
+int sumOfNodes(Node* root) {
+    if (root == nullptr) {
+        return 0;
+    }
+
+    return root->key + sumOfNodes(root->left) + sumOfNodes(root->right);
+}
+
 bool search(Node* root,int key){
     if(root==NULL){
         return false;
