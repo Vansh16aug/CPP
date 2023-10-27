@@ -17,7 +17,7 @@ struct Student {
 
 int main() {
     int choice;
-    Student* students = nullptr; // this points to the records
+    Student* students = NULL; // this points to the records
     int numStudents = 0;
 
     while (true) {
