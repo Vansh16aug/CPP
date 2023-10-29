@@ -16,7 +16,6 @@ void insert(int arr[], int& size, int item) {
     }
 }
 
-
 void deletion(int arr[],int& size){
     int last=arr[size];
     size--;
