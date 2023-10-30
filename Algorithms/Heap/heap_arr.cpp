@@ -22,7 +22,7 @@ void insert(int arr[], int& size, int item) { // add parameter for item
 void deletion(int arr[],int size){
     
     int last=arr[size-1];
-    size--;
+    size--; 
     int ptr=0;
     int left=1;
     int right=2;
