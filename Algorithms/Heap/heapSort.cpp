@@ -1,95 +1,67 @@
-#include <stdio.h>
-int size = 0;
-void swap(int *a, int *b)
-{
-    int temp = *b;
-    *b = *a;
-    *a = temp;
-}
-void heapify(int array[], int size, int i)
-{
-    if (size == 1)
-    {
-    printf("Single element in the heap");
-    }
-    else
-    {
-    int largest = i;
-    int l = 2 * i + 1;
-    int r = 2 * i + 2;
-    if (l < size && array[l] > array[largest])
-    largest = l;
-    if (r < size && array[r] > array[largest])
-    largest = r;
-    if (largest != i)
-    {
-    swap(&array[i], &array[largest]);
-    heapify(array, size, largest);
-    }
-    }
-}
-void insert(int array[], int newNum)
-{
-    if (size == 0)
-    {
-    array[0] = newNum;
-    size += 1;
-    }
-    else
-    {
-    array[size] = newNum;
-    size += 1;
-    for (int i = size / 2 - 1; i >= 0; i--)
-    {
-        heapify(array, size, i);
-    }
-    }
-}
-void deleteRoot(int array[])
-{
-    int i;
-    // for (i = 0; i < size; i++)
-    // {
-    // if (num == array[i])
-    // break;
-    // }
+#include<iostream>
+using namespace std;
 
-    swap(&array[i], &array[size - 1]);
-    size -= 1;
-    for (int i = size / 2 - 1; i >= 0; i--)
-    {
-    heapify(array, size, i);
+void insert(int arr[], int& size, int item) { // add parameter for item
+    size++;
+    arr[size-1] = item;
+    int index = size-1;
+    while (index > 1) {
+        int parent = (index-1) / 2;
+        if (arr[parent] < arr[index]) {
+            swap(arr[parent], arr[index]);
+            index = parent;
+        } else {
+            return;
+        }
+    }
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
     }
 }
 
-void printArray(int array[], int size)
-{
-    for (int i = 0; i < size; ++i)
-    printf("%d ", array[i]);
-    printf("\n");
+void deletion(int arr[],int size){
+    
+    int last=arr[size-1];
+    size--; 
+    int ptr=0;
+    int left=1;
+    int right=2;
+    arr[ptr]=last; // change arr[ptr] to last
+    int index = 1;
+        while(index < size){
+
+            int leftIndex = 2 * index;
+            int rightIndex = 2 * index + 1;
+            int swapIndex = index;
+
+           if(leftIndex <= size && arr[swapIndex] < arr[leftIndex]){
+               swapIndex = leftIndex;
+           }
+           if(rightIndex <= size && arr[swapIndex] < arr[rightIndex]){
+               swapIndex = rightIndex;
+           }
+
+            if(index != swapIndex){
+                swap(arr[index], arr[swapIndex]);
+                index = swapIndex;
+            }
+            else return ;
+        }
+    for(int i=0;i<size;i++){
+        cout<<arr[i]<<" ";
+    }
 }
-
-
 int main()
 {
-    int array[10];
-
-    insert(array, 3);
-    insert(array, 4);
-    insert(array, 9);
-    insert(array, 5);
-    insert(array, 2);
-
-    printf("Max-Heap array: ");
-    printArray(array, size);
-
-    for(int i=0;i<5;i++){
-        deleteRoot(array);
-    }
-    printf("After deleting an element: ");
-    for(int i=0;i<5;i++){
-        printArray(array, size);
-    }
-    
+    int arr[6]={72,54,50,27,36,45};
+    int size=6;
+    int item; 
+    cout<<"Enter new value :";
+    cin>>item;
+    cout<<"\nAfter insertion :";
+    insert(arr,size,item);  
+    cout<<endl;
+    cout<<"After deletion :";
+    deletion(arr,size);
     return 0;
 }

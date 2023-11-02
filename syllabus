@@ -11,4 +11,8 @@ C++
 
 DSA
 
+    Trees : Binary trees: introduction (complete and extended binary trees), memory     representation(linked, sequential), Binary Search Tree: introduction, searching, insertion and deletion, In-order traversal, Pre-order traversal, Post-order traversal using recursion
     
+    Recursion : Introduction, Recursive implementation of Towers of Hanoi, Merge sort, Quick sort
+
+    heap(insertion and deletion ) and heapsort.
