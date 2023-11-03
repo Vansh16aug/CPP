@@ -1,5 +1,5 @@
 #include <iostream>
-
+using namespace std;
 class Node {
 public:
     int data;
@@ -31,10 +31,10 @@ public:
     void display() {
         Node* current = head;
         while (current) {
-            std::cout << current->data << " -> ";
+             cout << current->data << " -> ";
             current = current->next;
         }
-        std::cout << "NULL" << std::endl;
+         cout << "NULL" << std::endl;
     }
 };
 
