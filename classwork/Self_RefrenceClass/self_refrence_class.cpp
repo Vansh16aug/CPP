@@ -19,7 +19,7 @@ public:
         if (!head) {
             head = new_node;
         }
-        else {
+        else {  //If the list is not empty, it traverses the list using a loop until it finds the last node (where current->next is nullptr) and then appends the new node.
             Node* current = head;
             while (current->next) {
                 current = current->next;
