@@ -45,13 +45,14 @@ class Heap{
             int rightIndex = 2 * index + 1;
             int swapIndex = index;
 
-           if(leftIndex <= size && arr[swapIndex] < arr[leftIndex]){
-               swapIndex = leftIndex;
-           }
-           if(rightIndex <= size && arr[swapIndex] < arr[rightIndex]){
-               swapIndex = rightIndex;
-           }
-
+            if(leftIndex <= size && arr[swapIndex] < arr[leftIndex]){
+                swap(arr[swapIndex],arr[leftIndex]);
+                swapIndex = leftIndex;
+            }
+            if(rightIndex <= size && arr[swapIndex] < arr[rightIndex]){
+                swap(arr[swapIndex],arr[rightIndex]);
+                swapIndex = rightIndex;
+            }
             if(index != swapIndex){
                 swap(arr[index], arr[swapIndex]);
                 index = swapIndex;

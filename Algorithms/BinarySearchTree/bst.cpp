@@ -68,9 +68,9 @@ bool search(Node* root,int key){
         return true;
     }
     if(key>root->key){
-        return search(root->right,key);
+        return search(root->left,key);
     }
-    return search(root->left,key);
+    return search(root->right,key);
 }
 
 Node* findMin(Node* root){
@@ -104,12 +104,12 @@ Node* remove(Node* root,int key){
         else if(root->left==NULL){
             Node* temp=root;
             root=root->right;
-            delete root;
+            delete temp;
         }
         else if(root->right==NULL){
             Node* temp=root;
             root=root->left;
-            delete root;
+            delete temp;
         }
         // Two Children
         else{
