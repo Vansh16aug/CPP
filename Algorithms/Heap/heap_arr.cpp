@@ -45,14 +45,21 @@ class Heap{
             int rightIndex = 2 * index + 1;
             int swapIndex = index;
 
+            //This section checks if the left child index is within the valid range (not exceeding the size) and whether the element at the swapIndex is less than the element at the leftIndex. If so, it swaps these two elements and updates swapIndex to the left child's index.
+
             if(leftIndex <= size && arr[swapIndex] < arr[leftIndex]){
                 swap(arr[swapIndex],arr[leftIndex]);
                 swapIndex = leftIndex;
             }
+            //Similarly, this section checks if the right child index is within the valid range and if the element at the swapIndex is less than the element at the rightIndex. If so, it swaps these two elements and updates swapIndex to the right child's index.
+
             if(rightIndex <= size && arr[swapIndex] < arr[rightIndex]){
                 swap(arr[swapIndex],arr[rightIndex]);
                 swapIndex = rightIndex;
             }
+
+            //After checking both left and right children, if the index is not equal to the swapIndex, it means that a swap was performed during this iteration, and the index is updated to swapIndex, indicating that the process continues for the child node that was just swapped.
+            
             if(index != swapIndex){
                 swap(arr[index], arr[swapIndex]);
                 index = swapIndex;
