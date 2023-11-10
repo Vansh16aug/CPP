@@ -1,62 +1,53 @@
-// Floyd-Warshall Algorithm in C++
-
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-// Define the number of vertices (nV) as 4
-#define nV 4
-
-// Define a constant for infinity (used to represent unreachable vertices)
+#define v 4
 #define INF 999
 
-// Function to print the matrix
-void printMatrix(int matrix[][nV]);
+void printMatrix(int matrix[][v]);
+void floydWarshal(int graph[][v]){
+    int matrix[v][v];
+    
+    //copying graph -> matrix
+    for(int i=0;i<v;i++){
+        for(int j=0;j<v;j++){
+            matrix[i][j]=graph[i][j];
+        }
+    }
 
-// Implementing the Floyd-Warshall algorithm
-void floydWarshall(int graph[][nV]) {
-    int matrix[nV][nV]; // Create a matrix to store the shortest distances
-    int i, j, k;
-
-    // Initialize the matrix with the input graph
-    for (i = 0; i < nV; i++)
-    for (j = 0; j < nV; j++)
-    matrix[i][j] = graph[i][j];
-
-    // Adding vertices individually to find shorter paths
-    for (k = 0; k < nV; k++) {
-        for (i = 0; i < nV; i++) {
-            for (j = 0; j < nV; j++) {
-            // Check if there's a shorter path through vertex k
-            if (matrix[i][k] + matrix[k][j] < matrix[i][j])
-                matrix[i][j] = matrix[i][k] + matrix[k][j];
+    for(int k=0;k<v;k++){   // for distance matrix
+        for(int i=0;i<v;i++){   // for rows
+            for(int j=0;j<v;j++){   // for columns
+                if(matrix[i][j]>matrix[i][k]+matrix[k][j]){
+                    matrix[i][j]=matrix[i][k]+matrix[k][j];
+                }
             }
         }
     }
-    // Print the final matrix with shortest distances
     printMatrix(matrix);
 }
 
-// Function to print the matrix
-void printMatrix(int matrix[][nV]) {
-    for (int i = 0; i < nV; i++) {
-        for (int j = 0; j < nV; j++) {
+
+void printMatrix(int matrix[][v]){
+    for (int i = 0; i < v; i++) {
+        for (int j = 0; j < v; j++) {
             // Check if the distance is infinity (unreachable)
             if (matrix[i][j] == INF)
-                printf("%4s", "INF");
+                cout << setw(5) << "INF";
             else
-                printf("%4d", matrix[i][j]); // Print the shortest distance
+                cout << setw(5) << matrix[i][j]; // Print the shortest distance
         }
-        printf("\n");
+        cout << endl;
     }
 }
 
-int main() {
-// Define the input graph with distances between vertices
-int graph[nV][nV] = {
-    {0, 3, INF, 5},
-    {2, 0, INF, 4},
-    {INF, 1, 0, INF},
-    {INF, INF, 2, 0}
-};
-floydWarshall(graph); // Call the Floyd-Warshall algorithm function
+int main()
+{
+    int graph[v][v]={
+        {0,3,INF,5},
+        {2,0,INF,4},
+        {INF,1,0,INF},
+        {INF,INF,2,0}
+    };
+    floydWarshal(graph);
+    return 0;
 }
