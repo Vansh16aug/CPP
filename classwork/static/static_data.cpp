@@ -19,7 +19,9 @@ class Student{
         count++;
     }
 };
+
 int Student::count=0;
+
 int main(){
     Student s1,s2,s3;
     s1.getdata();

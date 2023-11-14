@@ -8,10 +8,11 @@ class A{
 };
 class B:public A{
     public:
-    void show_data(){
-        cout<<"I m in a class B "<<endl;
-    }
+    void show_data();   //declare
 };
+void B::show_data(){     //define
+    cout<<"rxdcfgvbhjn";
+}
 int main()
 {
     B b;

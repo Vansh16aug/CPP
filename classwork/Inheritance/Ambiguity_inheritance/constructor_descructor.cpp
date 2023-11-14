@@ -5,7 +5,9 @@ public:
     A(){
         cout<<"I am in constructor of A"<<endl;
     }
-    
+    void func(){
+        cout<<"I m inside a func "<<endl;
+    }
     ~A(){
         cout<<"In destructor of class A"<<endl;
     }
@@ -23,6 +25,8 @@ public:
 int main()
 {
     B b;
+    // A a;
+    // a.func();
     // b.display();
     return 0;
 }

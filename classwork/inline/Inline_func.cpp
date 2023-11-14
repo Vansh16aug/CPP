@@ -10,4 +10,3 @@ int main()
     cout<<"Max(100,1010): "<<max(100,1010)<<endl;
     return 0;
 }
-

@@ -6,13 +6,16 @@ struct employee{
     string name;
     float salary;
 };
+
 int main()
 {
     int n;
     cout<<"Enter the number of employees :";
     cin>>n;
     cin.ignore();
+
     employee e[n];
+
     for(int i=0;i<=n;i++){
         cout<<"Enter the id of "<<i+1<< "Employee :"<<endl;
         cin>>e[i].id;

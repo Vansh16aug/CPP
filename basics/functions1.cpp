@@ -1,8 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 void printName(string name){
     cout<<"Hello World "<<name<<endl;
 }
+
 int main()
 {
     string name;
