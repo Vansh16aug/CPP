@@ -10,14 +10,14 @@ class Node{
         }
 };
 
-void display(Node* &head){
+void display(Node* &head){  
     Node* temp=head;
     while(temp!=NULL){
         cout<<temp->val<<" -> ";
         temp=temp->next;
     }
     cout<<"NULL"<<endl;
-}
+}   
 
 void insertatHead(Node* &head,int val){
     Node* new_node=new Node(val);
@@ -92,7 +92,6 @@ void deleteatPosition(Node* &head,int pos){
     Node* temp=prev->next;
     prev->next=prev->next->next;
     free(temp);
-
 }
 
 int main()

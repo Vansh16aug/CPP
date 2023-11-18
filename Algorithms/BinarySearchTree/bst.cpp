@@ -11,6 +11,7 @@ public:
         left=right=NULL;
     }
 };
+
 Node* insert(Node* root,int key){
     if(root==NULL){     // if empty then create one
         return new Node(key);
