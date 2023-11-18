@@ -21,9 +21,11 @@ class C:public A{
 int main()
 {
     B b;
-    C c;
+    C c; 
+
     b.displayA();
     c.displayA();
+    
     b.displayB();
     c.displayC();
     return 0;
