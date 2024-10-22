@@ -89,3 +89,169 @@
 //     SayDigits(n, numberToWord);
 //     return 0;
 // }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// bool isSorted(int *arr, int size)
+// {
+//     if (size == 0 || size == 1)
+//         return true;
+//     if (arr[0] > arr[1])
+//         return false;
+//     else return isSorted(arr + 1, size - 1);
+// }
+// int main()
+// {
+//     int arr[] = {1,2,3,4,5,6};
+//     cout << isSorted(arr, 6);
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int Sum(int *arr, int sum, int size)
+// {
+//     if (size == 0)
+//         return 0;
+//     sum += arr[0];
+//     return Sum(arr + 1, sum, size - 1);
+// }
+// int main()
+// {
+//     int arr[] = {1, 2, 3, 4, 5};
+//     cout << Sum(arr, 0, 5);
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// bool Search(int arr[], int size, int key)
+// {
+//     if (size == 0)
+//     {
+//         return false;
+//     }
+//     if (arr[0] == key)
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return Search(arr + 1, size - 1, key);
+//     }
+//     return false;
+// }
+// int main()
+// {
+//     int arr[] = {1, 2, 3, 4, 5};
+//     bool ans = Search(arr, 5, 3);
+//     if(ans) cout<<"Present"<<endl;
+//     else cout<<"Not Present"<<endl;
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// bool binarySearch(int arr[], int start, int end, int key)
+// {
+//     if (start > end)
+//         return false;
+//     int mid = start + (end - start) / 2;
+//     if (arr[mid] == key)
+//         return true;
+//     else if (arr[mid] < key)
+//         binarySearch(arr, mid + 1, end, key);
+//     else
+//         binarySearch(arr, start, mid - 1, key);
+// }
+// int main()
+// {
+//     int arr[5] = {1, 2, 3, 4, 5};
+//     int size = 5;
+//     bool ans = binarySearch(arr, 0, 5, 4);
+//     if (ans)
+//         cout << "Present" << endl;
+//     else
+//         cout << "Not Present" << endl;
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// void Reverse(string &s, int i, int j)
+// {
+//     if (i >= j)
+//         return;
+//     swap(s[i], s[j]);
+//     Reverse(s, i + 1, j - 1);
+// }
+// int main()
+// {
+//     // reverse string using recursion
+//     string s = "vansh";
+//     Reverse(s, 0, s.length() - 1);
+//     cout << s;
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// bool palindrome(string s, int i, int n)
+// {
+//     if (i > n - i - 1)
+//         return true;
+//     if (s[i] == s[n - i - 1])
+//     {
+//         palindrome(s, i + 1, n - i - 1);
+//     }
+//     else
+//         return false;
+// }
+// int main()
+// {
+//     string str = "caaca";
+//     bool isPal = palindrome(str, 0, str.length());
+//     if (isPal)
+//         cout << "Is Palindrome" << endl;
+//     else
+//         cout << "Not Palindrome" << endl;
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int power(int a, int b)
+// {
+//     // base case
+//     if (b == 0)
+//         return 1;
+//     if (b == 1)
+//         return a;
+//     int ans = power(a, b / 2);
+//     // b is even -> a^b/2 x a^b/2
+//     if (b % 2 == 0)
+//     {
+//         return (ans * ans);
+//     }
+//     // b is odd -> a x a^b/2 x a^b/2
+//     else{
+//         return (a * (ans * ans));
+//     }
+// }
+// int main()
+// {
+//     int a, b;
+//     cin >> a >> b;
+//     int ans = power(a, b);
+//     cout << ans << endl;
+//     return 0;
+// }
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    
+    return 0;
+}
+
