@@ -289,9 +289,60 @@
 //     return 0;
 // }
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
+
+void merge(vector<int>&arr,int left, int mid, int right){
+    vector<int>temp;
+    int low = left;
+    int high = mid+1;
+    
+    while(low <= mid && high <= right){
+        if(arr[low] <= arr[high]){
+            temp.push_back(arr[low]);
+            low++;
+        }
+        else{
+            temp.push_back(arr[high]);
+            high++;
+        }
+    }
+    //low side ele remain
+    while(low <= mid){
+        temp.push_back(arr[low]);
+        low++;
+    }
+    //high side ele remain  
+    while(high <= right){
+        temp.push_back(arr[high]);
+        high++;
+    }
+    for(int i = left;i<=right;i++){
+        arr[i] = temp[i-left];
+    }
+}
+
+void mergeSort(vector<int>&arr,int left, int right){
+    
+    if(left>=right) return;
+    
+    int mid = (left+right)/2;
+    mergeSort(arr,left,mid);    //till half
+    mergeSort(arr,mid+1,right); //after half
+    merge(arr,left,mid,right);
+}
+
+int main() {
+    vector<int>arr ={10,200,56,34,12};
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    mergeSort(arr, 0, arr.size() - 1);
+    cout<<endl<<"After Merging"<<endl;
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    
     return 0;
 }
