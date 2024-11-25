@@ -1,4 +1,3 @@
-
 // #include <bits/stdc++.h>
 // using namespace std;
 // void reachHome(int src, int dest)
@@ -289,60 +288,84 @@
 //     return 0;
 // }
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// void merge(vector<int>&arr,int left, int mid, int right){
+//     vector<int>temp;
+//     int low = left;
+//     int high = mid+1;
+//     while(low <= mid && high <= right){
+//         if(arr[low] <= arr[high]){
+//             temp.push_back(arr[low]);
+//             low++;
+//         }
+//         else{
+//             temp.push_back(arr[high]);
+//             high++;
+//         }
+//     }
+//     //low side ele remain
+//     while(low <= mid){
+//         temp.push_back(arr[low]);
+//         low++;
+//     }
+//     //high side ele remain
+//     while(high <= right){
+//         temp.push_back(arr[high]);
+//         high++;
+//     }
+//     for(int i = left;i<=right;i++){
+//         arr[i] = temp[i-left];
+//     }
+// }
+// void mergeSort(vector<int>&arr,int left, int right){
+//     if(left>=right) return;
+//     int mid = (left+right)/2;
+//     mergeSort(arr,left,mid);    //till half
+//     mergeSort(arr,mid+1,right); //after half
+//     merge(arr,left,mid,right);
+// }
+// int main() {
+//     vector<int>arr ={10,200,56,34,12};
+//     for (int i = 0; i < arr.size(); i++)
+//     {
+//         cout<<arr[i]<<" ";
+//     }
+//     mergeSort(arr, 0, arr.size() - 1);
+//     cout<<endl<<"After Merging"<<endl;
+//     for(int i=0;i<arr.size();i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
-
-void merge(vector<int>&arr,int left, int mid, int right){
-    vector<int>temp;
-    int low = left;
-    int high = mid+1;
-    
-    while(low <= mid && high <= right){
-        if(arr[low] <= arr[high]){
-            temp.push_back(arr[low]);
-            low++;
+void subsequesnces(int index, vector<int> &arr, vector<int> &ans)
+{
+    // base case
+    if (index == arr.size()){
+        for (auto it : ans){
+            cout << it << " ";
         }
-        else{
-            temp.push_back(arr[high]);
-            high++;
-        }
+        cout << endl;
+        return;
     }
-    //low side ele remain
-    while(low <= mid){
-        temp.push_back(arr[low]);
-        low++;
+    // null
+    if(index == 0){
+        cout<<"{}"<< endl;
     }
-    //high side ele remain  
-    while(high <= right){
-        temp.push_back(arr[high]);
-        high++;
-    }
-    for(int i = left;i<=right;i++){
-        arr[i] = temp[i-left];
-    }
+    // select
+    ans.push_back(arr[index]);
+    subsequesnces(index + 1, arr, ans);
+    // reject
+    ans.pop_back();
+    subsequesnces(index + 1, arr, ans);
 }
-
-void mergeSort(vector<int>&arr,int left, int right){
-    
-    if(left>=right) return;
-    
-    int mid = (left+right)/2;
-    mergeSort(arr,left,mid);    //till half
-    mergeSort(arr,mid+1,right); //after half
-    merge(arr,left,mid,right);
-}
-
-int main() {
-    vector<int>arr ={10,200,56,34,12};
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout<<arr[i]<<" ";
-    }
-    mergeSort(arr, 0, arr.size() - 1);
-    cout<<endl<<"After Merging"<<endl;
-    for(int i=0;i<arr.size();i++){
-        cout<<arr[i]<<" ";
-    }
-    
+int main()
+{
+    vector<int> arr = {3, 1, 2};
+    vector<int> ans;
+    subsequesnces(0, arr, ans);
     return 0;
 }
